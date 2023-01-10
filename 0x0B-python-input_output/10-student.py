@@ -1,23 +1,47 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 '''
-file: 100-append_after.py
-functions:
--> append_after
+file: 11-student.py
+Classes:
+-> Student
 '''
 
 
 
 
-def append_after(filename="", search_string="", new_string=""):
-    '''inserts new_string to a file, after find containing search_string'''
-    with open(filename, "r+") as file:
-        lines = file.readlines()
-        changed = []
-        for line in range(len(lines)):
-            changed.append(lines[line])
-            if search_string in lines[line]:
-                changed.append(new_string)
+class Student:
+
+    ''' Student class '''
 
 
-        file.seek(0)
-        file.write("".join(changed))
+
+    def __init__(self, first_name, last_name, age):
+
+        ''' Constructor method '''
+
+        self.first_name = first_name
+
+        self.last_name = last_name
+
+        self.age = age
+
+
+
+    def to_json(self, attrs=None):
+
+        ''' Method that returns directory description with filter '''
+
+
+
+        if isinstance(attrs, list) and all(isinstance(attr, str)
+
+                                           for attr in attrs):
+
+            res = {}
+
+            for i in attrs:
+
+                if i in self.__dict____
+
+                    res[i] = self.__dict__[i]
+            return res
+        return self.__dict__
