@@ -1,10 +1,11 @@
-#!usr/bin/python3
+#!/usr/bin/python3
 
-''
+'''
 file: 100-append_after.py
 functions:
 -> append_after
 '''
+
 
 
 
