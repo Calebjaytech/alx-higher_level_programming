@@ -3,10 +3,6 @@
 Locked Class
 """
 
-
-
-
-
 class LockedClass:
     """ Prevent user to create new attributes """
     __slots__ = ['first_name']
