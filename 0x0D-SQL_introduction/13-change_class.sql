@@ -1,3 +1,3 @@
--- Score too low
--- removes all records with a score <= 5
+-- removes all records where score is <= 5 from
+-- second table
 DELETE FROM second_table WHERE score <= 5;

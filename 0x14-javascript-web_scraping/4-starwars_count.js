@@ -7,12 +7,12 @@ request(url, function (err, response, body) {
   if (err) {
     console.log(err);
   } else if (response.statusCode === 200) {
-    const films = JSON.parse(body).results;
+    const movies = JSON.parse(body).results;
     let count = 0;
-    for (const filmIndex in films) {
-      const filmChars = films[filmIndex].characters;
-      for (const charIndex in filmChars) {
-        if (filmChars[charIndex].includes('18')) {
+    for (const i in movies) {
+      const movieChars = movies[i].characters;
+      for (const charIndex in movieChars) {
+        if (movieChars[charIndex].includes('18')) {
           count++;
         }
       }

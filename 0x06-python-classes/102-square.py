@@ -1,258 +1,56 @@
+#!/usr/bin/python3
+
+"""Define a class Square."""
+
+
 class Square:
+    """Represent a square."""
 
+    def __init__(self, size=0):
+        """Initialize a new square.
 
-    def __init__(self, size=0, position=(0, 0)):
-
-
+        Args:
+            size (int): The size of the new square.
+        """
         self.size = size
 
-        self.position = position
-
-
-
-    
-
     @property
-
-
     def size(self):
-
-
-
-        return self._size
-
-
-
-    
-
-
+        """Get/set the current size of the square."""
+        return (self.__size)
 
     @size.setter
-
-
-
     def size(self, value):
-
-
-
         if not isinstance(value, int):
-
-
-
             raise TypeError("size must be an integer")
-
-
-
-        if value < 0:
-
-
-
+        elif value < 0:
             raise ValueError("size must be >= 0")
-
-
-
-        self._size = value
-
-
-
-    
-
-
-
-    @property
-
-
-
-    def position(self):
-
-
-
-        return self._position
-
-
-
-    
-
-
-
-    @position.setter
-
-
-
-    def position(self, value):
-
-
-
-        if not isinstance(value, tuple) or len(value) != 2 or not all(isinstance(i, int) and i >= 0 for i in value):
-
-
-
-            raise TypeError("position must be a tuple of 2 positive integers")
-
-
-
-        self._position = value
-
-
-
-    
-
-
+        self.__size = value
 
     def area(self):
-
-
-
-        return self.size ** 2
-
-
-
-    
-
-
-
-    def my_print(self):
-
-
-
-        if self.size == 0:
-
-
-
-            print()
-
-
-
-            return
-
-
-
-        for _ in range(self.position[1]):
-
-
-
-            print()
-
-
-
-        for i in range(self.size):
-
-
-
-            print(" " * self.position[0] + "#" * self.size)
-
-
-
-    
-
-
-
-    def __str__(self):
-
-
-
-        res = []
-
-
-
-        if self.size == 0:
-
-
-
-            res.append("")
-
-
-
-            return "\n".join(res)
-
-
-
-        for _ in range(self.position[1]):
-
-
-
-            res.append("")
-
-
-
-        for i in range(self.size):
-
-
-
-            res.append(" " * self.position[0] + "#" * self.size)
-
-
-
-        return "\n".join(res)
-
-
-
-    
-
-
+        """Return the current area of the square."""
+        return (self.__size * self.__size)
 
     def __eq__(self, other):
-
-
-
-        return isinstance(other, Square) and self.size == other.size
-
-
-
-    
-
-
+        """Define the == comparision to a Square."""
+        return self.area() == other.area()
 
     def __ne__(self, other):
-
-
-
-        return not self == other
-
-
-
-    
-
-
-
-    def __gt__(self, other):
-
-
-
-        return isinstance(other, Square) and self.area() > other.area()
-
-
-
-    
-
-
-
-    def __ge__(self, other):
-
-
-
-        return self > other or self == other
-
-
-
-    
-
-
+        """Define the != comparison to a Square."""
+        return self.area() != other.area()
 
     def __lt__(self, other):
-
-
-
-        return not self >= other
-
-
-
-    
-
-
+        """Define the < comparison to a Square."""
+        return self.area() < other.area()
 
     def __le__(self, other):
+        """Define the <= comparison to a Square."""
+        return self.area() <= other.area()
 
+    def __gt__(self, other):
+        """Define the > comparison to a Square."""
+        return self.area() > other.area()
 
-
-        return not self > other
+    def __ge__(self, other):
+        """Define the >= compmarison to a Square."""
+        return self.area() >= other.area()
